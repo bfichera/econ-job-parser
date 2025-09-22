@@ -35,18 +35,18 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     exit 0
 fi
 
-/usr/bin/env python3 clean/clean_ejm.py data/ejm.csv \
+/usr/bin/env python3 _clean/clean_ejm.py data/ejm.csv \
     output/excel/ejm output/discarded/ejm output/academic/ejm output/verbose/ejm "$@"
 
-/usr/bin/env python3 clean/clean_aea.py data/aea.csv \
+/usr/bin/env python3 _clean/clean_aea.py data/aea.csv \
     output/excel/aea output/discarded/aea output/academic/aea output/verbose/aea "$@"
 
-/usr/bin/env python3 clean/join.py \
+/usr/bin/env python3 _clean/join.py \
     output/excel/all/all.csv \
     output/excel/aea/aea.csv \
     output/excel/ejm/ejm.csv
 
-/usr/bin/env python3 clean/join.py \
+/usr/bin/env python3 _clean/join.py \
     output/academic/all/all.csv \
     output/academic/aea/aea.csv \
     output/academic/ejm/ejm.csv
